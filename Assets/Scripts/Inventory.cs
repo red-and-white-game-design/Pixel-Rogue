@@ -16,12 +16,16 @@ public class Inventory : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+        Init();
+    }
+
+    public void Init() {
         tetris = new Tetris[5] {
-            new TetrisA1(),
-            new TetrisB1(),
-            new TetrisD3(),
-            new TetrisD5(),
-            new TetrisE8(),
+            Tetris.GetRandom(1),
+            Tetris.GetRandom(2),
+            Tetris.GetRandom(4),
+            Tetris.GetRandom(4),
+            Tetris.GetRandom(5),
         };
         useTime = new int[5] {
             1,

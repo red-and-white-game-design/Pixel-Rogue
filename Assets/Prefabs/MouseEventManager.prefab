@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8328120012173149165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8328120012173149167}
+  - component: {fileID: 8328120012173149164}
+  m_Layer: 0
+  m_Name: MouseEventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8328120012173149167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328120012173149165}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8328120012173149164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328120012173149165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2760dd9576a161548b9761e3eb2ef68c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TetrisFollowGO: {fileID: 2464451345823423476, guid: 1681c7881600e2642820e5f12966928d, type: 3}
+  TetrisRayCastGO: {fileID: 2819991519801869672, guid: 4c806a50fd63a8347934b08901aa9d50, type: 3}
+  TetrisFlipFollowGO: {fileID: 9035565262553688626, guid: 5b0369594a919e942895d871aa70eed0, type: 3}
+  TetrisFlipRayCastGO: {fileID: 6373865391920951678, guid: 0d11786c0bae57546bc9df76f0c76543, type: 3}
+  currentButton: {fileID: 0}
+  currentFlipButton: {fileID: 0}

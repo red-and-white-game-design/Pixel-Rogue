@@ -15,43 +15,15 @@ public class PuzzleMap : MonoBehaviour
     private PuzzleTile[,] tile;
 
     void Start() {
+        Inventory.instance.Init();
         if (instance == null) {
             instance = this;
         }
-        size = new(9, 9);
-        map = new string[9] {
-            "111111111",
-            "122222221",
-            "122222221",
-            "122222221",
-            "122222221",
-            "122222221",
-            "122222221",
-            "122222221",
-            "111111111",
-        };
-        star = new string[9] {
-            "000000000",
-            "000111000",
-            "000000000",
-            "010000010",
-            "010000010",
-            "001000100",
-            "011000110",
-            "001000100",
-            "000000000",
-        };
-        target = new string[9] {
-            "000000000",
-            "010000010",
-            "001010100",
-            "000101000",
-            "000101000",
-            "000101000",
-            "000010000",
-            "000010000",
-            "000000000",
-        };
+        int id = Random.Range(0, 3);
+        size = MapPool.size[id];
+        map = MapPool.map[id];
+        star = MapPool.star[id];
+        target = MapPool.target[id];
         Init();
     }
 
@@ -82,10 +54,15 @@ public class PuzzleMap : MonoBehaviour
     public void Check() {
         bool accomplishment = true;
         foreach (var t in tile) {
-            if (!t.Check()) {
-                accomplishment &= false;
-            }
+            accomplishment = accomplishment && t.Check();
         }
-        
+        Debug.Log(accomplishment);
+        int score = 0;
+        for (int i = 0; i < size.x; i++) {
+            for (int j = 0; j < size.y; j++) {
+                score += tile[i, j].GetScore();
+            }
+       }
+        GameManager.instance.GameResult(accomplishment, score);
     }
 }

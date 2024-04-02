@@ -176,4 +176,13 @@ public class PuzzleTile : MonoBehaviour
 
         return true;
     }
+
+    public int GetScore() {
+        int res = 0;
+        if (hasStar && isFilled) {
+            res++;
+        }
+        Debug.Log($"Point {res}");
+        return res;
+    }
 }

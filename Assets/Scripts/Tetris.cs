@@ -29,7 +29,7 @@ public class Tetris {
             }
         }
     }
-    public List<Tetris> GetList(int tier) {
+    public static List<Tetris> GetList(int tier) {
         List<Tetris> list = new();
         switch (tier) {
             case 1:
@@ -80,5 +80,10 @@ public class Tetris {
                 break;
         }
         return list;
+    }
+
+    public static Tetris GetRandom(int tier) {
+        var list = GetList(tier);
+        return list[Random.Range(0, list.Count)];
     }
 }
