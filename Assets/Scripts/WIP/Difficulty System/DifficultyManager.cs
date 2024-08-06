@@ -12,8 +12,19 @@ public enum Difficulty {
     Lvl6,
 }
 
-public class DifficultyManager : Manager {
+public class DifficultyManager : MonoBehaviour {
+    public static DifficultyManager instance;
     public Difficulty difficulty = Difficulty.Lvl0;
+    public bool challengeMode = false;
+
+    protected void InitManager() {
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
+        }
+    }
 
     private void Awake() {
         InitManager();

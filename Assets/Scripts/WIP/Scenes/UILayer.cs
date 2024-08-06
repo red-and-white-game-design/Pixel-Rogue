@@ -11,12 +11,14 @@ public class UILayer : MonoBehaviour
     }
 
     public void Fade() {
-        canvasGroup.blocksRaycasts = true;
+        canvasGroup.blocksRaycasts = false;
+        LeanTween.cancel(canvasGroup.gameObject);
         LeanTween.alphaCanvas(canvasGroup, 0f, 0.5f).setEase(LeanTweenType.easeOutQuad);
     }
 
     public void Emerge() {
         canvasGroup.blocksRaycasts = true;
+        LeanTween.cancel(canvasGroup.gameObject);
         LeanTween.alphaCanvas(canvasGroup, 1f, 0.5f).setEase(LeanTweenType.easeInQuad);
     }
 
@@ -26,6 +28,7 @@ public class UILayer : MonoBehaviour
     }
 
     public void Hide() {
+        Debug.Log(canvasGroup);
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 0f;
     }

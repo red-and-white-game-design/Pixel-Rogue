@@ -14,12 +14,16 @@ public class DifficultyUI : MonoBehaviour
     public GameObject DescriptionContainer;
     private Vector3 lastCenterPosition;
 
+    public bool challengeMode = false;
+    public ChallengeButton challengeButton;
+
     public void AddDifficulty(int value) {
         if (!CanAddDifficulty(value)) return;
         if (value > 0) {
             for (int i = 0; i < Description.Count; i++) {
                 var description = Description[i] != null ? Description[i].GetComponent<CanvasGroup>() : null;
                 if (description != null && difficulty < i && i <= difficulty + value) {
+                    LeanTween.cancel(description.gameObject);
                     LeanTween.alphaCanvas(description, 1f, 0.5f);
                 }
             }
@@ -27,6 +31,7 @@ public class DifficultyUI : MonoBehaviour
             for (int i = 0; i < Description.Count; i++) {
                 var description = Description[i] != null ? Description[i].GetComponent<CanvasGroup>() : null;
                 if (description != null && difficulty + value < i && i <= difficulty) {
+                    LeanTween.cancel(description.gameObject);
                     LeanTween.alphaCanvas(description, 0f, 0.1f);
                 }
             }
@@ -49,12 +54,19 @@ public class DifficultyUI : MonoBehaviour
             var description2 = Description[difficulty] != null ? Description[difficulty] : null;
             center = (description1.transform.position + description2.transform.position) / 2f;
         }
+        LeanTween.cancel(DescriptionContainer);
         LeanTween.moveY(DescriptionContainer, DescriptionContainer.transform.position.y + lastCenterPosition.y - center.y, 0.2f);
+    }
+
+    public void UpdateDifficulty() {
+        DifficultyManager.instance.difficulty = (Difficulty)difficulty;
+        DifficultyManager.instance.challengeMode = challengeMode;
     }
 
     private void Start() {
         var description = Description[0] != null ? Description[0] : null;
         lastCenterPosition = description.transform.position;
         UpdateDifficulty(difficulty);
+        challengeButton.SetChallengeMode(challengeMode);
     }
 }
