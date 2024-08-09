@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Brick {
-    Vector2Int size = new(0, 0);
+    public Vector2Int size = new(0, 0);
     bool[,] pattern = new bool[0, 0];
     bool[,] patternReversed = new bool[0, 0];
 
@@ -15,7 +15,7 @@ public class Brick {
         }
     }
 
-    static public Brick Gen(Vector2Int _size, string[] _pattern) {
+    public static Brick Gen(Vector2Int _size, string[] _pattern) {
         Brick brick = new();
         brick.size = _size;
         brick.pattern = new bool[_size.x, _size.y];

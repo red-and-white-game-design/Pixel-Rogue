@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class BlockSelect : MonoBehaviour {
     public StartBlockType[] startSetting = new StartBlockType[4];
     public BlockButton[] blockButton;
+    public UIManager UI;
+    public UILayer BrickSelectLayer;
+    public BrickInitPanel brickInitPanel;
+    public int currentButtonID;
 
     void Start()
     {

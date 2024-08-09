@@ -28,7 +28,7 @@ public class UILayer : MonoBehaviour
     }
 
     public void Hide() {
-        Debug.Log(canvasGroup);
+        // Debug.Log(canvasGroup);
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 0f;
     }
