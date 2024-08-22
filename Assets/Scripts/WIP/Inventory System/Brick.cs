@@ -37,3 +37,13 @@ public class Brick {
         return brick;
     }
 }
+
+public class BrickID {
+    public int size;
+    public int id;
+
+    public BrickID(int _size, int _id) {
+        size = _size;
+        id = _id;
+    }
+}
