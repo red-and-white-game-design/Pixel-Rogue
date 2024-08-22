@@ -16,13 +16,13 @@ public class UILayer : MonoBehaviour
         LeanTween.alphaCanvas(canvasGroup, 0f, 0.5f).setEase(LeanTweenType.easeOutQuad);
     }
 
-    public void Emerge() {
+    public virtual void Emerge() {
         canvasGroup.blocksRaycasts = true;
         LeanTween.cancel(canvasGroup.gameObject);
         LeanTween.alphaCanvas(canvasGroup, 1f, 0.5f).setEase(LeanTweenType.easeInQuad);
     }
 
-    public void Show() {
+    public virtual void Show() {
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
     }
